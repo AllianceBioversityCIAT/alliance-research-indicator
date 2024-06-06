@@ -1,0 +1,100 @@
+@import 'https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0';
+
+// https://fonts.google.com/icons?icon.style=Rounded&icon.query=contact&icon.set=Material+Symbols&icon.size=24&icon.color=%23e8eaed
+
+// Color variables
+$primary-color: #231f20; // Black
+$secondary-color: #358540; // Green
+$teriary-color: #173f6f; // Blue
+$accent-color-1: #ffcf01; // Yellow
+$accent-color-2: #f58220; // Orange
+$accent-color-3: #cac92d; // Lime Green
+$accent-color-4: #ba3c27; // Red
+$accent-color-5: #1689ca; // Light Blue
+$accent-color-6: #903f98; // Purple
+
+// Font family definitions
+$primary-font-family: 'Barlow', sans-serif;
+$secondary-font-family: 'Calibri', sans-serif;
+
+:root {
+  --primary-color: #231f20; // Black
+  --primary-color-2: #1f2933; // Light Grey
+  --secondary-color: #358540; // Green
+  --secondary-color-light: #04cb63; // Light Green
+  --teriary-color: #173f6f; // Blue
+  --accent-color-1: #ffcf01; // Yellow
+  --accent-color-2: #f58220; // Orange
+  --accent-color-3: #cac92d; // Lime Green
+  --accent-color-4: #ba3c27; // Red
+  --accent-color-5: #1689ca; // Light Blue
+  --accent-color-6: #903f98; // Purple
+}
+
+* {
+  font-family: Barlow, sans-serif;
+}
+
+// Base body styles
+body {
+  font-family: $primary-font-family;
+  color: $primary-color;
+  background-color: #fff; // Background color
+  font-size: 16px; // Base font size
+  line-height: 1.5;
+  padding: 0;
+  margin: 0;
+}
+
+// Heading styles
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.5em; // Size for H1
+}
+
+h2 {
+  font-size: 2em; // Size for H2
+}
+
+h3 {
+  font-size: 1.75em; // Size for H3
+}
+
+// Paragraph styles
+p {
+  margin-bottom: 1em;
+  color: $primary-color;
+}
+
+// Link styles
+a {
+  color: $secondary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Button styles
+button {
+  background-color: $secondary-color;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    // background-color: darken($secondary-color, 10%);
+  }
+}

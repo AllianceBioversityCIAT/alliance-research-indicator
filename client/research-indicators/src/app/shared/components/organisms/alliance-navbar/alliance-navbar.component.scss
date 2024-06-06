@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
+  height: 100%;
+
+  .logo {
+    img {
+      height: 110px;
+    }
+
+    transition: all ease-in-out 0.3s;
+    opacity: 1;
+
+    &.hide {
+      opacity: 0;
+    }
+  }
+
+  .options {
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+    align-items: center;
+  }
+}

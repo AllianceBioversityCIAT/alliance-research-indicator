@@ -1,0 +1,11 @@
+<div class="navbar">
+  <div class="logo {{ this.cache.isLoggedIn() && 'hide' }}">
+    <img src="alliance-color.png" alt="" srcset="" />
+  </div>
+  <div class="options">
+    @for (option of this.options; track $index) {
+    <div class="option">{{ option.label }}</div>
+    }
+    <button (click)="redirectToCognito()">sign in</button>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="sidebar {{ this.cache.isLoggedIn() && 'show-animation' }}">
+  <div class="logo center-flex"><img src="alliance-white.png" alt="" srcset="" /></div>
+  <div class="options">
+    @for (option of this.options; track $index) {
+    <div class="option">
+      <i class="material-symbols-rounded"> {{ option.icon }} </i>
+      <div class="text">{{ option.label }}</div>
+    </div>
+    }
+  </div>
+</div>
+
+<div class="sidebar-space {{ this.cache.isLoggedIn() && 'show-animation' }}"></div>

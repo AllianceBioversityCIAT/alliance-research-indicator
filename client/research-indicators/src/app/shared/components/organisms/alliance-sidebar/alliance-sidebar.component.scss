@@ -1,0 +1,47 @@
+.sidebar {
+  flex-direction: column;
+  background-color: var(--primary-color-2);
+  height: 100%;
+  width: 0;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transition: all ease-in-out 0.3s;
+
+  .logo {
+    img {
+      width: 250px;
+    }
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 20px;
+
+    .option {
+      display: flex;
+      gap: 10px;
+      cursor: pointer;
+
+      .text {
+        color: white;
+      }
+
+      i {
+        color: var(--secondary-color-light);
+      }
+    }
+  }
+}
+
+.sidebar-space {
+  width: 0;
+  transition: all ease-in-out 0.3s;
+}
+
+.show-animation {
+  width: 300px;
+}

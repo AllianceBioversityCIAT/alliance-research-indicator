@@ -1,0 +1,20 @@
+// Define the container for the grid layout
+.grid-container {
+  display: grid;
+  grid-template:
+    'sidebar navbar' 70px
+    'sidebar content' auto / auto 1fr; // Sidebar 300px and the rest auto   // First row 100px and the rest auto
+
+  height: 100vh; // Full viewport height
+  .navbar {
+    grid-area: navbar;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+  }
+
+  .content {
+    grid-area: content;
+  }
+}
