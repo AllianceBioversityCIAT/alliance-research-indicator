@@ -11,17 +11,20 @@
     }
 
     transition: all ease-in-out 0.3s;
-    opacity: 1;
-
-    &.hide {
-      opacity: 0;
-    }
   }
 
   .options {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     cursor: pointer;
     align-items: center;
+
+    .option {
+      transition: all ease-in-out 0.3s;
+    }
+
+    .notification-icon {
+      font-size: 1.3rem !important;
+    }
   }
 }

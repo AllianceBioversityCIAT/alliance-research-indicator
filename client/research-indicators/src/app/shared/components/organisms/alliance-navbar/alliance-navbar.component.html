@@ -1,11 +1,16 @@
 <div class="navbar">
-  <div class="logo {{ this.cache.isLoggedIn() && 'hide' }}">
+  <div class="logo {{ this.animationCache.isLoggedInHideClass() }}">
     <img src="alliance-color.png" alt="" srcset="" />
   </div>
   <div class="options">
     @for (option of this.options; track $index) {
-    <div class="option">{{ option.label }}</div>
+    <div class="option  {{ this.animationCache.isLoggedInHideClass() }}">{{ option.label }}</div>
     }
-    <button (click)="redirectToCognito()">sign in</button>
+
+    <i class="pi pi-bell notification-icon" class="{{ this.animationCache.isNotLoggedInHideClass() }}" pBadge value="2"></i>
+
+    <p-chip class="{{ this.animationCache.isNotLoggedInHideClass() }}" label="Amy Elsner" image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" alt="Avatar image" />
+
+    <p-button class="{{ this.animationCache.isLoggedInHideClass() }}" size="small" label="Sign in" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="redirectToCognito()" />
   </div>
 </div>

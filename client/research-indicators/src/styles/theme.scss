@@ -42,59 +42,6 @@ body {
   color: $primary-color;
   background-color: #fff; // Background color
   font-size: 16px; // Base font size
-  line-height: 1.5;
   padding: 0;
   margin: 0;
-}
-
-// Heading styles
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: bold;
-}
-
-h1 {
-  font-size: 2.5em; // Size for H1
-}
-
-h2 {
-  font-size: 2em; // Size for H2
-}
-
-h3 {
-  font-size: 1.75em; // Size for H3
-}
-
-// Paragraph styles
-p {
-  margin-bottom: 1em;
-  color: $primary-color;
-}
-
-// Link styles
-a {
-  color: $secondary-color;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-// Button styles
-button {
-  background-color: $secondary-color;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-
-  &:hover {
-    // background-color: darken($secondary-color, 10%);
-  }
 }

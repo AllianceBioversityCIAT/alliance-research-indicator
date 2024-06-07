@@ -1,16 +1,23 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CacheService } from '../../../services/cache.service';
+import { ButtonModule } from 'primeng/button';
+import { BadgeModule } from 'primeng/badge';
+import { ChipModule } from 'primeng/chip';
+import { AnimationsCacheService } from '../../../services/animations-cache.service';
+import { DynamicToastService } from '../../../services/dynamic-toast.service';
 
 @Component({
   selector: 'organism-alliance-navbar',
   standalone: true,
-  imports: [],
+  imports: [ButtonModule, BadgeModule, ChipModule],
   templateUrl: './alliance-navbar.component.html',
   styleUrl: './alliance-navbar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AllianceNavbarComponent {
+  dynamicToast = inject(DynamicToastService);
   cache = inject(CacheService);
+  animationCache = inject(AnimationsCacheService);
 
   options = [
     { label: 'Home', path: '/home' },
