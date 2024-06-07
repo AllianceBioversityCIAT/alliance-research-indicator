@@ -1,0 +1,22 @@
+<div class="sp">
+  @for (field of this.fields; track $index) {
+  <div>
+    @switch (field.type) { @case ('section') {
+
+    <div class="section">
+      Section
+      <app-dynamic-component-selector [fields]="field.fields"></app-dynamic-component-selector>
+    </div>
+
+    } @case ('block') {
+    <div class="block">
+      Block
+      <app-dynamic-component-selector [fields]="field.fields"></app-dynamic-component-selector>
+    </div>
+
+    } @case ('title') {
+    <strong>title</strong>
+    } @case ('input') { <input type="text" /> } @default { Default case. } }
+  </div>
+  }
+</div>

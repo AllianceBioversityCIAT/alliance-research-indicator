@@ -11,6 +11,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/platform/platform.component')
   },
   {
+    path: 'fields',
+    loadComponent: () => import('./pages/dynamic-fields/dynamic-fields.component')
+  },
+  {
     path: '**',
     redirectTo: 'not-found',
     pathMatch: 'full'
