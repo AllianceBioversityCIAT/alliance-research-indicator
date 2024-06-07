@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CacheService } from './cache.service';
 import { environment } from '../../../environments/environment';
 import { DynamicToastService } from './dynamic-toast.service';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class CognitoService {
   router = inject(Router);
   cache = inject(CacheService);
   dynamicToastSE = inject(DynamicToastService);
+  api = inject(ApiService);
 
   decode() {
     const base64UrlToBase64 = (input: string) => {
@@ -38,7 +40,9 @@ export class CognitoService {
   }
   async validateCognitoCode() {
     const { code } = this.activatedRoute.snapshot.queryParams || {};
-
+    const response = await this.api.login(code);
+    console.log(response);
+    console.log(code);
     if (!code) return;
     localStorage.setItem('token', this.decode().token);
     localStorage.setItem('decoded', JSON.stringify(this.decode().decoded));
@@ -47,7 +51,7 @@ export class CognitoService {
       this.cache.isLoggedIn.set(true);
       this.cache.isValidatingToken.set(false);
       this.dynamicToastSE.toastMessage.set({ severity: 'success', summary: 'Success', detail: 'You are now logged in' });
-      // this.router.navigate(['/auth']);
+      this.router.navigate(['/auth']);
     }, 2000);
   }
 }
