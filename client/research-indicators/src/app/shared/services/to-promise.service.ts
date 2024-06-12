@@ -13,10 +13,10 @@ export class ToPromiseService {
   private TP = (subscription: Observable<any>, dataConfig?: DataConfig): Promise<MainResponse<any>> => {
     return new Promise(async resolve => {
       try {
-        resolve(await firstValueFrom(subscription.pipe(map(data => (dataConfig?.flatten ? { data: data.data, success: true } : { data, success: true })))));
+        resolve(await firstValueFrom(subscription.pipe(map(data => ({ ...data, successfulRequest: true })))));
       } catch (error: any) {
         console.error(error);
-        resolve({ success: false, errorDetail: error?.error?.message, data: error });
+        resolve({ ...error, successfulRequest: false, errorDetail: error.error.description });
       }
     });
   };

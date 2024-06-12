@@ -3,20 +3,22 @@
   <div>
     @switch (field.type) { @case ('section') {
 
-    <div class="section">
+    <div class="section" draggable="true" (drop)="drop($event, field)" (dragover)="dragover($event, field.type)">
       Section
       <app-dynamic-component-selector [fields]="field.fields"></app-dynamic-component-selector>
     </div>
 
     } @case ('block') {
-    <div class="block">
+    <div class="block" draggable="true" (drop)="drop($event, field)" (dragover)="dragover($event, field.type)">
       Block
+      <!-- <div class="drag-box" (drop)="drop($event)" (dragenter)="dragenter($event)" (dragover)="dragover($event)" (dragleave)="dragleave($event)"></div> -->
+
       <app-dynamic-component-selector [fields]="field.fields"></app-dynamic-component-selector>
     </div>
 
     } @case ('title') {
-    <strong>title</strong>
-    } @case ('input') { <input type="text" /> } @default { Default case. } }
+    <strong class="{{ this.cache.orderMode ? 'order-mode' : '' }}" (dragstart)="dragstart($event, field)" (dragend)="dragend($event)" (dragenter)="dragenter($event, field.type)" (dragover)="dragover($event, field.type)" draggable="true">title</strong>
+    } @case ('input') { <input class="{{ this.cache.orderMode ? 'order-mode' : '' }}" type="text" (dragstart)="dragstart($event, field)" (dragend)="dragend($event)" (dragover)="dragover($event, field.type)" draggable="true" /> } @default { Default case. } }
   </div>
   }
 </div>

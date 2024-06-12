@@ -8,4 +8,7 @@ export class CacheService {
   isLoggedIn = signal(false);
   isValidatingToken = signal(false);
   wasAnimated = signal(false);
+  currentContainer: any = {};
+  currentItem: any = {};
+  orderMode = false;
 }

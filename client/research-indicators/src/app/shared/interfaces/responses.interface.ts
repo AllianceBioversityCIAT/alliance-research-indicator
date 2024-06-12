@@ -1,6 +1,6 @@
 export interface MainResponse<T> {
   data: T;
-  success: boolean;
+  successfulRequest: boolean;
   errorDetail?: string;
 }
 

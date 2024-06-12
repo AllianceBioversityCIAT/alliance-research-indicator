@@ -8,4 +8,11 @@
 
 .block {
   box-shadow: 0 0 10px 0 rgb(0 0 0 / 10%);
+  padding: 20px;
+  width: 100%;
+  min-height: 200px;
+}
+
+.order-mode {
+  border: solid 1px rgb(255 17 0);
 }
