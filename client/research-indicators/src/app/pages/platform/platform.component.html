@@ -6,5 +6,22 @@
 <div class="grid-container">
   <div class="navbar"><organism-alliance-navbar></organism-alliance-navbar></div>
   <div class="sidebar"><organism-alliance-sidebar></organism-alliance-sidebar></div>
-  <div class="content"><router-outlet></router-outlet></div>
+  <div class="content">
+    <div class="grid grid-nogutter surface-section text-800">
+      <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
+        <section>
+          <span class="block text-6xl font-bold mb-1">About us</span>
+          <!-- <div class="text-6xl text-primary font-bold mb-3">your visitors deserve to see</div> -->
+          <p class="mt-0 mb-4 text-700 line-height-3">The Alliance is part of CGIAR, a global research partnership for a food-secure future, dedicated to transforming food, land, and water systems in the context of a climate crisis.</p>
+
+          <button pButton pRipple label="Open project" type="button" class="mr-3 p-button-raised"></button>
+          <!-- <button pButton pRipple label="Live Demo" type="button" class="p-button-outlined"></button> -->
+        </section>
+      </div>
+      <div class="col-12 md:col-6 overflow-hidden">
+        <img src="hero-1.jpeg" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)" />
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
 </div>

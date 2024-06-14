@@ -9,8 +9,9 @@
 
     <i class="pi pi-bell notification-icon" class="{{ this.animationCache.isNotLoggedInHideClass() }}" pBadge value="2"></i>
 
-    <p-chip class="{{ this.animationCache.isNotLoggedInHideClass() }}" label="Amy Elsner" image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" alt="Avatar image" />
+    <p-chip class="{{ this.animationCache.isNotLoggedInHideClass() }}" [label]="this.cache.userInfo().first_name" alt="Avatar image" />
 
     <p-button class="{{ this.animationCache.isLoggedInHideClass() }}" size="small" label="Sign in" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="redirectToCognito()" />
+    <p-button class="{{ this.animationCache.isNotLoggedInHideClass() }}" size="small" label="Log out" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="logOut()" />
   </div>
 </div>

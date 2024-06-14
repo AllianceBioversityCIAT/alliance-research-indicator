@@ -46,6 +46,7 @@ export class CognitoService {
     if (!code) return;
     localStorage.setItem('token', this.decode().token);
     localStorage.setItem('decoded', JSON.stringify(this.decode().decoded));
+    this.cache.userInfo.set(localStorage.getItem('decoded') ? JSON.parse(localStorage.getItem('decoded') ?? '') : {});
     this.cache.isValidatingToken.set(true);
     setTimeout(() => {
       this.cache.isLoggedIn.set(true);
