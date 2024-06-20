@@ -33,7 +33,8 @@
             ],
             "styles": [
               "src/styles/styles.scss",
-              "src/styles/theme.scss"
+              "src/styles/theme.scss",
+              "node_modules/primeflex/primeflex.css"
             ],
             "scripts": []
           },
