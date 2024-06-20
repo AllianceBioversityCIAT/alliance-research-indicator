@@ -1,7 +1,10 @@
 export interface MainResponse<T> {
   data: T;
+  status: number;
+  description: string;
+  timestamp: string;
+  path: string;
   successfulRequest: boolean;
-  errorDetail?: string;
 }
 
 export interface ErrorResponse {
@@ -10,11 +13,8 @@ export interface ErrorResponse {
 }
 
 export interface LoginRes {
-  data: Data;
-  status: number;
-  description: string;
-  timestamp: string;
-  path: string;
+  access_token: string;
+  refresh_token: string;
 }
 
 export interface DecodedUserData {
@@ -25,9 +25,4 @@ export interface DecodedUserData {
   exp?: number;
   letter?: string;
   isLogged: boolean;
-}
-
-interface Data {
-  access_token: string;
-  refresh_token: string;
 }

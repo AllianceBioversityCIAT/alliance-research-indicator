@@ -1,7 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CacheService } from './cache.service';
-import { environment } from '../../../environments/environment';
 import { DynamicToastService } from './dynamic-toast.service';
 import { ApiService } from './api.service';
 
@@ -15,7 +14,7 @@ export class CognitoService {
   dynamicToastSE = inject(DynamicToastService);
   api = inject(ApiService);
 
-  decode() {
+  decode(token: string) {
     const base64UrlToBase64 = (input: string) => {
       let base64 = input.replace(/-/g, '+').replace(/_/g, '/');
       while (base64.length % 4) {
@@ -35,24 +34,22 @@ export class CognitoService {
       return JSON.parse(decodedPayload);
     };
 
-    const token = environment.token;
     return { decoded: decodeJwtPayload(token), token };
   }
   async validateCognitoCode() {
     const { code } = this.activatedRoute.snapshot.queryParams || {};
-    const response = await this.api.login(code);
-    console.log(response);
-    console.log(code);
     if (!code) return;
-    localStorage.setItem('token', this.decode().token);
-    localStorage.setItem('decoded', JSON.stringify(this.decode().decoded));
+    const response = await this.api.login(code);
+    const { decoded, token } = this.decode(response.data.access_token);
+    localStorage.setItem('token', token);
+    localStorage.setItem('decoded', JSON.stringify(decoded));
     this.cache.userInfo.set(localStorage.getItem('decoded') ? JSON.parse(localStorage.getItem('decoded') ?? '') : {});
     this.cache.isValidatingToken.set(true);
     setTimeout(() => {
       this.cache.isLoggedIn.set(true);
       this.cache.isValidatingToken.set(false);
       this.dynamicToastSE.toastMessage.set({ severity: 'success', summary: 'Success', detail: 'You are now logged in' });
-      this.router.navigate(['/auth']);
+      this.router.navigate(['/']);
     }, 2000);
   }
 }

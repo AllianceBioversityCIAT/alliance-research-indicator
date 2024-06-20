@@ -30,6 +30,7 @@ export class DynamicComponentSelectorComponent {
     const itemB = { ...this.dynamicSelectorSE.replace.item };
     this.dynamicSelectorSE.replace.container.fields[this.dynamicSelectorSE.replace.i] = itemA;
     this.dynamicSelectorSE.current.container.fields[this.dynamicSelectorSE.current.i] = itemB;
+    this.dynamicSelectorSE.orderMode = false;
 
     //! drop: Ocurre cuando un objeto arrastrado es soltado dentro del contenedor.
   }

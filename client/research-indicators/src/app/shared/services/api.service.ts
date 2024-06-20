@@ -41,6 +41,8 @@ export class ApiService {
     return this.TP.get(url(), {});
   };
 
+  // http://localhost:3001/api/authorization/view/configurations/schema
+
   // PATCH_SummaryTable = (body: OverviewBody): Promise<MainResponse<OverviewBody>> => {
   //   const url = () => `api/entity/${this.globalVars.currentInitiativeId()}/overview/summary/save`;
   //   return this.TP.patch(url(), body);
