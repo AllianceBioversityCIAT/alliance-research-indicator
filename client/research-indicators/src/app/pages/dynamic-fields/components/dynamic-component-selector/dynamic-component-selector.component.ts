@@ -1,11 +1,12 @@
 import { Component, inject, Input } from '@angular/core';
-import { CacheService } from '../../../../shared/services/cache.service';
 import { DynamicComponentSelectorService } from './dynamic-component-selector.service';
+import { DynamicInputComponent } from '../dynamic-input/dynamic-input.component';
+import { DynamicTitleComponent } from '../dynamic-title/dynamic-title.component';
 
 @Component({
   selector: 'app-dynamic-component-selector',
   standalone: true,
-  imports: [],
+  imports: [DynamicInputComponent, DynamicTitleComponent],
   templateUrl: './dynamic-component-selector.component.html',
   styleUrl: './dynamic-component-selector.component.scss'
 })
