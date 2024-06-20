@@ -39,17 +39,17 @@ export class CognitoService {
   async validateCognitoCode() {
     const { code } = this.activatedRoute.snapshot.queryParams || {};
     if (!code) return;
+    this.cache.isValidatingToken.set(true);
     const response = await this.api.login(code);
     const { decoded, token } = this.decode(response.data.access_token);
     localStorage.setItem('token', token);
     localStorage.setItem('decoded', JSON.stringify(decoded));
     this.cache.userInfo.set(localStorage.getItem('decoded') ? JSON.parse(localStorage.getItem('decoded') ?? '') : {});
-    this.cache.isValidatingToken.set(true);
+    this.cache.isValidatingToken.set(false);
+    this.dynamicToastSE.toastMessage.set({ severity: 'success', summary: 'Success', detail: 'You are now logged in' });
+    this.router.navigate(['/']);
     setTimeout(() => {
       this.cache.isLoggedIn.set(true);
-      this.cache.isValidatingToken.set(false);
-      this.dynamicToastSE.toastMessage.set({ severity: 'success', summary: 'Success', detail: 'You are now logged in' });
-      this.router.navigate(['/']);
-    }, 2000);
+    }, 100);
   }
 }
