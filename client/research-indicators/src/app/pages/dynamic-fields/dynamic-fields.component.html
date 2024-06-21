@@ -1,1 +1,14 @@
-<app-dynamic-component-selector [fields]="this.dynamicSelectorSE.fields"></app-dynamic-component-selector>
+<form [formGroup]="formGroup" (ngSubmit)="save()">
+  @for (campo of campos; track $index) {
+  <div>
+    <div>{{ campo.nombre }}</div>
+    <input type="text" [formControlName]="campo.nombre" />
+    <!-- <div *ngIf="formulario.get(campo.nombre).invalid && (formulario.get(campo.nombre).dirty || formulario.get(campo.nombre).touched)">
+      <div *ngIf="formulario.get(campo.nombre).errors.required">Campo requerido</div>
+      <div *ngIf="ç">Formato inválido</div>
+    </div> -->
+  </div>
+  }
+
+  <button type="submit">Submit</button>
+</form>
