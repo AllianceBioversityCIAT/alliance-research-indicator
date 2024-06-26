@@ -1,5 +1,5 @@
 <br />
-<p-floatLabel>
-  <input id="username" type="text" pInputText />
+<p-floatLabel [formGroup]="this.dynamicFieldsSE.formGroup">
+  <input id="username" type="text" [formControlName]="attr" pInputText />
   <label for="username">Username</label>
 </p-floatLabel>

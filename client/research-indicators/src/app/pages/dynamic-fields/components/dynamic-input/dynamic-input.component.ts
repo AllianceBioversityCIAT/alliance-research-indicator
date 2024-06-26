@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
+import { DynamicFieldsService } from '../../dynamic-fields.service';
 
 @Component({
   selector: '[app-dynamic-input]',
@@ -11,5 +12,7 @@ import { InputTextModule } from 'primeng/inputtext';
   styleUrl: './dynamic-input.component.scss'
 })
 export class DynamicInputComponent {
+  dynamicFieldsSE = inject(DynamicFieldsService);
+
   @Input() attr = '';
 }

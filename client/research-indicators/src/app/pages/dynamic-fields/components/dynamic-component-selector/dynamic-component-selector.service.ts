@@ -33,13 +33,13 @@ export class DynamicComponentSelectorService {
       type: 'section',
       fields: [
         { type: 'title', id: 10 },
-        { type: 'input', attr: 'nombre', id: 11 },
+        { type: 'input', attr: 'nombree', id: 11, validations: { required: true } },
         {
           type: 'block',
           id: 100,
           fields: [
             { type: 'title', id: 101 },
-            { type: 'input', attr: 'edad', id: 102 }
+            { type: 'input', attr: 'edad', id: 102, validations: { required: false, min: 18 } }
           ]
         }
       ]
