@@ -7,6 +7,4 @@ import { Component } from '@angular/core';
   templateUrl: './dynamic-button.component.html',
   styleUrl: './dynamic-button.component.scss'
 })
-export class DynamicButtonComponent {
-
-}
+export class DynamicButtonComponent {}

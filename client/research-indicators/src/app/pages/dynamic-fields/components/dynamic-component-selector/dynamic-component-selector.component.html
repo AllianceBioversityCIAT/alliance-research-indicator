@@ -4,12 +4,12 @@
     @switch (field.type) { @case ('section') {
 
     <div [attr.i]="$index" [attr.j]="this.index" class="section" draggable="true" (drop)="drop($event)" (dragover)="dragover($event, field.type)">
-      <app-dynamic-component-selector [parent]="field" [index]="this.index + 1" [fields]="field.fields"></app-dynamic-component-selector>
+      <div app-dynamic-component-selector [parent]="field" [index]="this.index + 1" [fields]="field.fields"></div>
     </div>
 
     } @case ('block') {
     <div [attr.i]="$index" [attr.j]="this.index" class="block" draggable="true" (drop)="drop($event)" (dragover)="dragover($event, field.type)">
-      <app-dynamic-component-selector [parent]="field" [index]="this.index + 1" [fields]="field.fields"></app-dynamic-component-selector>
+      <div app-dynamic-component-selector [parent]="field" [index]="this.index + 1" [fields]="field.fields"></div>
     </div>
 
     } @case ('title') {
@@ -20,7 +20,7 @@
     } @case ('input') {
     <div [attr.i]="$index" [attr.j]="this.index" class="input {{ this.dynamicSelectorSE.orderMode ? 'order-mode' : '' }}" (dragstart)="dragstart($event, field, $index)" (dragend)="dragend($event)" (dragenter)="dragenter($event, field, $index)" draggable="true">
       <div class="dropper" draggable="false" style="pointer-events: none"></div>
-      <app-dynamic-input></app-dynamic-input>
+      <div app-dynamic-input [attr]="field.attr"></div>
     </div>
 
     } @default { Default case. } }
