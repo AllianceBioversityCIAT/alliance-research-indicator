@@ -5,11 +5,12 @@ import { BadgeModule } from 'primeng/badge';
 import { ChipModule } from 'primeng/chip';
 import { AnimationsCacheService } from '../../../services/animations-cache.service';
 import { DynamicToastService } from '../../../services/dynamic-toast.service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'organism-alliance-navbar',
   standalone: true,
-  imports: [ButtonModule, BadgeModule, ChipModule],
+  imports: [ButtonModule, BadgeModule, ChipModule, RouterLink, RouterLinkActive],
   templateUrl: './alliance-navbar.component.html',
   styleUrl: './alliance-navbar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -20,9 +21,11 @@ export class AllianceNavbarComponent {
   animationCache = inject(AnimationsCacheService);
 
   options = [
-    { label: 'Home', path: '/home' },
-    { label: 'About', path: '/about' },
-    { label: 'Contact', path: '/contact' }
+    { icon: 'home', label: 'Home', path: '/home' },
+    { icon: 'info', label: 'About Indicators', path: '/about' },
+    { icon: 'notifications', label: 'Notifications', path: '/notifications' },
+    { icon: 'settings', label: 'Settings', path: '/settings' },
+    { icon: 'person', label: 'Profile', path: '/profile' }
   ];
 
   redirectToCognito() {

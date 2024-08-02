@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CacheService } from './cache.service';
 import { DynamicToastService } from './dynamic-toast.service';
@@ -14,12 +14,18 @@ export class CognitoService {
   dynamicToastSE = inject(DynamicToastService);
   api = inject(ApiService);
 
+  constructor() {
+    this.decode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Im1pY3JvMy5kYXRhQGNnaWFyLm9yZyIsInN1YiI6NDY0MywicGVybWlzc2lvbnMiOlsiL2FwaS9hcHAtc2VjcmV0cy9jcmVhdGUiLCIvYXBpL2FwcC1zZWNyZXRzL3ZhbGlkYXRlIl0sImlhdCI6MTcyMTMzNzI0NywiZXhwIjoxNzIxMzY2MDQ3fQ.n92jqcr5JigN_8qMCMEDKjFOzpowduh9DuLct-qfGB4');
+  }
+
   decode(token: string) {
+    console.log('decode');
     const base64UrlToBase64 = (input: string) => {
       let base64 = input.replace(/-/g, '+').replace(/_/g, '/');
       while (base64.length % 4) {
         base64 += '=';
       }
+      console.log(base64);
       return base64;
     };
 

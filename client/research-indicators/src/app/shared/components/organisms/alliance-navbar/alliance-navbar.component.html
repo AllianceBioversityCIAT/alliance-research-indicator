@@ -1,17 +1,20 @@
 <div class="navbar">
   <div class="logo {{ this.animationCache.isLoggedInHideClass() }}">
-    <img src="alliance-color.png" alt="" srcset="" />
+    <img src="alliance-white.png" alt="" srcset="" />
   </div>
   <div class="options">
     @for (option of this.options; track $index) {
-    <div class="option  {{ this.animationCache.isLoggedInHideClass() }}">{{ option.label }}</div>
+    <a [routerLink]="option.path" routerLinkActive="active" class="option  {{ this.animationCache.isLoggedInHideClass() }}">
+      <i class="material-symbols-rounded"> {{ option.icon }} </i>
+      {{ option.label }}
+    </a>
     }
+    <!--
+    <i class="pi pi-bell notification-icon" class="{{ this.animationCache.isNotLoggedInHideClass() }}" pBadge value="2"></i> -->
 
-    <i class="pi pi-bell notification-icon" class="{{ this.animationCache.isNotLoggedInHideClass() }}" pBadge value="2"></i>
+    <!-- <p-chip class="{{ this.animationCache.isNotLoggedInHideClass() }}" [label]="this.cache.userInfo().first_name" alt="Avatar image" /> -->
 
-    <p-chip class="{{ this.animationCache.isNotLoggedInHideClass() }}" [label]="this.cache.userInfo().first_name" alt="Avatar image" />
-
-    <p-button class="{{ this.animationCache.isLoggedInHideClass() }}" size="small" label="Sign in" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="redirectToCognito()" />
-    <p-button class="{{ this.animationCache.isNotLoggedInHideClass() }}" size="small" label="Log out" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="logOut()" />
+    <!-- <p-button class="{{ this.animationCache.isLoggedInHideClass() }}" size="small" label="Sign in" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="redirectToCognito()" /> -->
+    <!-- <p-button class="{{ this.animationCache.isNotLoggedInHideClass() }}" size="small" label="Log out" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="logOut()" /> -->
   </div>
 </div>
