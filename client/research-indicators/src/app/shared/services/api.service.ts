@@ -41,10 +41,14 @@ export class ApiService {
     return this.TP.get(url(), {});
   };
 
-  // http://localhost:3001/api/authorization/view/configurations/schema
-
-  // PATCH_SummaryTable = (body: OverviewBody): Promise<MainResponse<OverviewBody>> => {
-  //   const url = () => `api/entity/${this.globalVars.currentInitiativeId()}/overview/summary/save`;
-  //   return this.TP.patch(url(), body);
-  // };
+  GET_results = (): Promise<any[]> => {
+    return new Promise((resolve, reject) => {
+      const url = () => `http://localhost:4200/data/results.json`;
+      fetch(url())
+        .then(response => response.json())
+        .then(data => {
+          resolve(data);
+        });
+    });
+  };
 }

@@ -1,1 +1,50 @@
-<p>results-table works!</p>
+<p-card>
+  <p-table #dt1 [value]="results()" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]" [loading]="this.loading()" [paginator]="true" [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']">
+    <ng-template pTemplate="caption">
+      <div class="flex">
+        <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt1)" />
+        <span class="p-input-icon-left ml-auto">
+          <i class="pi pi-search"></i>
+          <input pInputText type="text" [(ngModel)]="searchValue" placeholder="Search keyword" />
+        </span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="header">
+      <tr>
+        @for (col of this.columns; track $index) {
+        <th>
+          <p-columnFilter type="text" field="name" placeholder="Search by name" ariaLabel="Filter Name" />
+        </th>
+        }
+      </tr>
+      <tr>
+        @for (col of this.columns; track $index) {
+        <th style="min-width: 15rem">
+          <div class="flex align-items-center">
+            {{ col.header }}
+            <p-columnFilter type="text" [field]="col.attr" display="menu" />
+          </div>
+        </th>
+
+        @for (col of this.columns; track $index) {
+
+        <th style="min-width: 15rem" pSortableColumn="code">{{ col.header }} <p-sortIcon field="code" /></th>
+        } }
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+      <tr>
+        @for (col of this.columns; track $index) {
+        <td>
+          {{ customer[col.attr] }}
+        </td>
+        }
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="7">No customers found.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
