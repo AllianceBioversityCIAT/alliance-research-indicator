@@ -1,0 +1,47 @@
+.footer {
+  background-color: var(--primary-blue-500);
+  padding: 50px 120px;
+
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+
+    .logo {
+      img {
+        width: 130px;
+      }
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .title {
+        font-weight: 500;
+        color: white;
+        margin-bottom: 18px;
+      }
+
+      .option {
+        color: rgb(204 204 204);
+        font-weight: 300;
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  hr {
+    border: none;
+    border: 0.5px solid rgb(152 152 152);
+    margin-top: 80px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+  }
+
+  .copyright {
+    text-align: center;
+    color: #ddddddcb;
+    font-size: 0.9rem;
+  }
+}

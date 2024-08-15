@@ -4,11 +4,12 @@ import { CacheService } from '../../shared/services/cache.service';
 import { RouterOutlet } from '@angular/router';
 import { CognitoService } from '../../shared/services/cognito.service';
 import { ButtonModule } from 'primeng/button';
+import { FooterComponent } from '../../shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-platform',
   standalone: true,
-  imports: [AllianceNavbarComponent, RouterOutlet, ButtonModule],
+  imports: [AllianceNavbarComponent, RouterOutlet, ButtonModule, FooterComponent],
   templateUrl: './platform.component.html',
   styleUrl: './platform.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
