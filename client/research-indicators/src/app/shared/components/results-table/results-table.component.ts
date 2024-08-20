@@ -9,10 +9,12 @@ import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { CardModule } from 'primeng/card';
+import { TabViewModule } from 'primeng/tabview';
+
 @Component({
   selector: 'app-results-table',
   standalone: true,
-  imports: [TableModule, InputTextModule, TagModule, DropdownModule, MultiSelectModule, ProgressBarModule, ButtonModule, FormsModule, CardModule],
+  imports: [TableModule, InputTextModule, TagModule, DropdownModule, MultiSelectModule, ProgressBarModule, ButtonModule, FormsModule, CardModule, TabViewModule],
   templateUrl: './results-table.component.html',
   styleUrl: './results-table.component.scss'
 })

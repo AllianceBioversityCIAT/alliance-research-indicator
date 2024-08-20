@@ -1,4 +1,13 @@
 <p-card>
+  <div class="section-header">
+    <div class="title">FIND AND CREATE RESULTS</div>
+    <p-button icon="pi pi-plus" label="Create new result" />
+  </div>
+  <p-tabView>
+    <p-tabPanel header="My results"> </p-tabPanel>
+    <p-tabPanel header="All results"> </p-tabPanel>
+  </p-tabView>
+
   <p-table #dt1 [value]="results()" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]" [loading]="this.loading()" [paginator]="true" [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']">
     <ng-template pTemplate="caption">
       <div class="flex">
