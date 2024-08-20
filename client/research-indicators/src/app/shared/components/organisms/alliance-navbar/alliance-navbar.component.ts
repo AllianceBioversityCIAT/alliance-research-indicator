@@ -21,11 +21,11 @@ export class AllianceNavbarComponent {
   animationCache = inject(AnimationsCacheService);
 
   options = [
-    { icon: 'home', label: 'Home', path: '/home' },
-    { icon: 'info', label: 'About Indicators', path: '/about' },
-    { icon: 'notifications', label: 'Notifications', path: '/notifications' },
-    { icon: 'settings', label: 'Settings', path: '/settings' },
-    { icon: 'person', label: 'Profile', path: '/profile' }
+    { label: 'Home', path: '/home' },
+    { label: 'About Indicators', path: '/about' },
+    { label: 'Notifications', path: '/notifications' },
+    { label: 'Settings', path: '/settings' },
+    { label: 'Profile', path: '/profile' }
   ];
 
   redirectToCognito() {
