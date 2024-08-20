@@ -21,13 +21,6 @@
     <ng-template pTemplate="header">
       <tr>
         @for (col of this.columns; track $index) {
-        <th>
-          <p-columnFilter type="text" field="name" placeholder="Search by name" ariaLabel="Filter Name" />
-        </th>
-        }
-      </tr>
-      <tr>
-        @for (col of this.columns; track $index) {
         <th style="min-width: 15rem">
           <div class="flex align-items-center">
             {{ col.header }}
@@ -35,10 +28,7 @@
           </div>
         </th>
 
-        @for (col of this.columns; track $index) {
-
-        <th style="min-width: 15rem" pSortableColumn="code">{{ col.header }} <p-sortIcon field="code" /></th>
-        } }
+        }
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-customer>
