@@ -3,9 +3,9 @@ import { CacheService } from '../../../services/cache.service';
 import { ButtonModule } from 'primeng/button';
 import { BadgeModule } from 'primeng/badge';
 import { ChipModule } from 'primeng/chip';
-import { AnimationsCacheService } from '../../../services/animations-cache.service';
 import { DynamicToastService } from '../../../services/dynamic-toast.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'organism-alliance-navbar',
@@ -18,7 +18,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class AllianceNavbarComponent {
   dynamicToast = inject(DynamicToastService);
   cache = inject(CacheService);
-  animationCache = inject(AnimationsCacheService);
 
   options = [
     { label: 'Home', path: '/home' },
@@ -29,7 +28,11 @@ export class AllianceNavbarComponent {
   ];
 
   redirectToCognito() {
-    window.location.href = 'https://ost-toc.auth.us-east-1.amazoncognito.com/login?client_id=633s5bbcklq3bpvnctpnf1e2si&response_type=code&scope=email+openid+phone+profile&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Fauth';
+    // Redirect to cognito login in other tab
+    window.open(environment.cognitoUrl);
+
+    // // window.location.href = environment.cognitoUrl;
+    // this.dynamicToast.show('Redirecting to Cognito login', 'success');
   }
 
   logOut() {

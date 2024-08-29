@@ -1,0 +1,5 @@
+<p-dialog [position]="'topright'" header="Edit Profile" [(visible)]="this.showModal" [style]="{ width: '25rem' }">
+  @for (user of this.websocket.userList(); track $index) {
+  <p>{{ user.name }}</p>
+  }
+</p-dialog>

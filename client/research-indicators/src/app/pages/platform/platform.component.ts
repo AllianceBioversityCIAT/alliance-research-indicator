@@ -18,6 +18,6 @@ export default class PlatformComponent implements OnInit {
   cache = inject(CacheService);
   cognito = inject(CognitoService);
   ngOnInit(): void {
-    // this.cognito.validateCognitoCode();
+    this.cognito.validateCognitoCode();
   }
 }

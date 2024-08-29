@@ -13,11 +13,8 @@ export class DynamicFieldsService {
 
   init(fields: any) {
     this.flattenFieldsList = this.flattenFields(this.dynamicComponentSelectorSE.fields, ['input', 'select']);
-    console.log(this.flattenFieldsList);
-    console.log(fields);
     const formControls: any = {};
     this.flattenFieldsList.forEach((campo: any) => {
-      console.log(campo);
       const validations: ValidatorFn[] = [];
       for (const key in campo.validations) {
         if (key == 'required' && campo.validations[key]) validations.push(Validators.required);
@@ -28,8 +25,6 @@ export class DynamicFieldsService {
       }
       formControls[campo.attr] = this.fb.control('', validations);
     });
-
-    console.log(this.formGroup.value);
 
     this.formGroup = this.fb.group(formControls);
   }

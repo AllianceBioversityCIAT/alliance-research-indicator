@@ -33,6 +33,10 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'room/:id',
+    loadComponent: () => import('./pages/room/room.component')
+  },
+  {
     path: 'auth',
     loadComponent: () => import('./pages/platform/platform.component')
   },
