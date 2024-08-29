@@ -2,4 +2,8 @@
   @for (user of this.websocket.userList(); track $index) {
   <p>{{ user.name }}</p>
   }
+  <h3>Room {{ this.websocket.currentRoom().id }}</h3>
+  @for (roomUser of this.websocket.currentRoom().userList; track $index) {
+  <p>{{ roomUser.name }}</p>
+  }
 </p-dialog>

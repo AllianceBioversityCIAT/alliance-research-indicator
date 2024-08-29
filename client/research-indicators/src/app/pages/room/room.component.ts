@@ -24,16 +24,9 @@ export default class RoomComponent implements OnInit, OnDestroy {
     this.roomId = this.route.snapshot.paramMap.get('id') || '';
     this.socket.emit('join-room', this.roomId);
 
-    // this.chatServie.getMessagesPrivate().subscribe(msg => {
-    //   console.log(msg);
-    // });
-
-    // getMessagesPrivate() {
-    //   return this.wsService.listen('mensaje-privado');
-    // }
-
-    this.websocket.listen('updateUserList').subscribe((userList: any) => {
+    this.websocket.listen('room-users').subscribe((userList: any) => {
       console.log(userList);
+      this.websocket.currentRoom.set({ id: this.roomId, userList });
     });
   }
 

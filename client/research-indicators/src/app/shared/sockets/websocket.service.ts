@@ -15,6 +15,7 @@ export class WebsocketService {
   public user: User | null = null;
 
   userList: WritableSignal<any> = signal([]);
+  currentRoom: WritableSignal<any> = signal({ id: '', userList: [] });
 
   constructor() {
     this.runsockets();
