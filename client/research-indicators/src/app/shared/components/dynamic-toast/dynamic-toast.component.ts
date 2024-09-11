@@ -1,8 +1,8 @@
 import { Component, effect, inject } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
-import { CacheService } from '../../../services/cache.service';
-import { DynamicToastService } from '../../../services/dynamic-toast.service';
+import { CacheService } from '../../services/cache.service';
+import { DynamicToastService } from '../../services/dynamic-toast.service';
 
 @Component({
   selector: 'organism-dynamic-toast',

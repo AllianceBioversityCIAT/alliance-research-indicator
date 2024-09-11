@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CacheService } from '../../../services/cache.service';
 import { ButtonModule } from 'primeng/button';
 import { BadgeModule } from 'primeng/badge';
 import { ChipModule } from 'primeng/chip';
-import { DynamicToastService } from '../../../services/dynamic-toast.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { environment } from '../../../../../environments/environment';
+import { DynamicToastService } from '../../services/dynamic-toast.service';
+import { CacheService } from '../../services/cache.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'organism-alliance-navbar',

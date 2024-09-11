@@ -5,8 +5,6 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
 })
 export class DynamicToastService {
   toastMessage: WritableSignal<ToastMessage> = signal({ severity: '', summary: '', detail: '' });
-
-  constructor() {}
 }
 
 interface ToastMessage {
