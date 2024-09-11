@@ -8,7 +8,7 @@ import { CacheService } from '../../services/cache.service';
 import { environment } from '../../../../environments/environment';
 
 @Component({
-  selector: 'organism-alliance-navbar',
+  selector: 'alliance-navbar',
   standalone: true,
   imports: [ButtonModule, BadgeModule, ChipModule, RouterLink, RouterLinkActive],
   templateUrl: './alliance-navbar.component.html',
