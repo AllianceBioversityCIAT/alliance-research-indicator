@@ -1,0 +1,26 @@
+$padding: 20px;
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr;
+  gap: $padding;
+  height: 100vh;
+  padding: $padding;
+}
+
+.navbar {
+  grid-column: 1 / span 2;
+}
+
+.sidebar {
+  grid-row: 2;
+  overflow-y: auto;
+}
+
+.content {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: #ddd;
+  overflow-y: auto;
+}

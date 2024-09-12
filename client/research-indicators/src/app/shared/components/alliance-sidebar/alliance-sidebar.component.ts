@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CacheService } from '../../services/cache.service';
 
 @Component({
-  selector: 'organism-alliance-sidebar',
+  selector: 'alliance-sidebar',
   standalone: true,
   imports: [],
   templateUrl: './alliance-sidebar.component.html',
