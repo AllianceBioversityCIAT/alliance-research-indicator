@@ -83,7 +83,7 @@ export class WebsocketService {
   }
 
   getAlerts() {
-    this.listen('alert').subscribe((msg: any) => {
+    this.listen(`alert-${this.platform}`).subscribe((msg: any) => {
       alert(msg.text);
     });
   }
