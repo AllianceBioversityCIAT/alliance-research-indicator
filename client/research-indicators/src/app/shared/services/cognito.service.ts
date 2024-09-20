@@ -1,4 +1,4 @@
-import { inject, Injectable, OnInit } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CacheService } from './cache.service';
 import { DynamicToastService } from './dynamic-toast.service';

@@ -3,6 +3,7 @@ import { Socket } from 'ngx-socket-io';
 import { Router } from '@angular/router';
 import { CacheService } from '../services/cache.service';
 import { User } from './classes/User';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class WebsocketService {
 
   userList: WritableSignal<any> = signal([]);
   currentRoom: WritableSignal<any> = signal({ id: '', userList: [] });
-
+  platform = environment.platform;
   constructor() {
     this.runsockets();
   }
@@ -28,7 +29,7 @@ export class WebsocketService {
     this.getAlerts();
 
     const { first_name, id } = this.cache.userInfo();
-    if (first_name) this.configUser(first_name, id);
+    this.configUser(first_name, id);
   }
 
   checkStatus() {
@@ -51,7 +52,8 @@ export class WebsocketService {
 
   configUser(name: string, userId: number) {
     return new Promise((resolve, reject) => {
-      this.emit('config-user', { name, userId }, (resp: any) => {
+      console.table({ name, userId, platform: this.platform });
+      this.emit('config-user', { name, userId, platform: this.platform }, (resp: any) => {
         this.user = new User(name, userId);
         resolve(null);
       });
@@ -75,7 +77,7 @@ export class WebsocketService {
   }
 
   getConnectedUsers() {
-    this.listen('all-connected-users').subscribe(resp => {
+    this.listen(`all-connected-users-${this.platform}`).subscribe(resp => {
       this.userList.set(resp);
     });
   }
