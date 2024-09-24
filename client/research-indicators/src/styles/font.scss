@@ -1,0 +1,55 @@
+// Mixin para generar clases tipográficas
+@mixin generate-typography($family, $weight, $size, $letter-spacing: 0, $case: normal-case) {
+  font-family: $family;
+  font-weight: $weight;
+  font-size: $size;
+  letter-spacing: $letter-spacing;
+  text-transform: $case;
+}
+
+// Tipografías basadas en el PDF
+
+// H1 - Principal Title
+.h1 {
+  @include generate-typography('Space Grotesk', 700, 36px, -1.5px);
+}
+
+// H2 - Subtitle
+.h2 {
+  @include generate-typography('Space Grotesk', 700, 24px, 0.5px);
+}
+
+// H3 - Context Title
+.h3 {
+  @include generate-typography('Space Grotesk', 600, 18px, 0.15px);
+}
+
+// H4 - Action Title
+.h4 {
+  @include generate-typography('Space Grotesk', 700, 16px, 0.25px);
+}
+
+// Body 1 - Principal Text
+.body-1 {
+  @include generate-typography('Barlow', 400, 18px, 0.5px);
+}
+
+// Body 2 - Secondary Text
+.body-2 {
+  @include generate-typography('Barlow', 400, 14px, 0.25px);
+}
+
+// Caption - Annotations
+.caption {
+  @include generate-typography('Barlow', 400, 12px, 0.2px);
+}
+
+// Label - Card Title
+.label {
+  @include generate-typography('Space Grotesk', 500, 15px, 0.15px);
+}
+
+// Medium Label - Context Title
+.medium-label {
+  @include generate-typography('Space Grotesk', 500, 12px, 0);
+}

@@ -101,3 +101,39 @@ $colors: (
 
 // Include to generate the classes
 @include generate-color-classes($colors);
+
+[data-theme='dark'] {
+  --ac-background: #191919;
+  --ac-light-blue-100: #4a708b;
+  --ac-light-blue-200: #369;
+  --ac-light-blue-300: #2b5986;
+  --ac-light-blue-400: #23466b;
+  --ac-light-blue-500: #1b3450;
+  --ac-primary-blue-100: #3d5167;
+  --ac-primary-blue-200: #2e3e51;
+  --ac-primary-blue-300: #253448;
+  --ac-primary-blue-400: #1c2938;
+  --ac-primary-blue-500: #121c25;
+  --ac-primary-blue-600: #0e1620;
+  --ac-primary-blue-700: #0a1018;
+  --ac-green-100: #3a5a41;
+  --ac-green-200: #2e4a34;
+  --ac-green-300: #244030;
+  --ac-green-400: #1a3325;
+  --ac-green-500: #14251a;
+  --ac-green-600: #101c16;
+  --ac-green-700: #0d1812;
+  --ac-grey-100: #2b2b2b;
+  --ac-grey-200: #3e3e3e;
+  --ac-grey-300: #4c4c4c;
+  --ac-grey-400: #616161;
+  --ac-grey-500: #7d7d7d;
+  --ac-grey-600: #949494;
+  --ac-grey-700: #acacac;
+  --ac-grey-800: #c2c2c2;
+  --ac-grey-900: #e5e5e5;
+  --ac-orange-1: #ff9d56;
+  --ac-white-1: #e5e5e5;
+  --ac-white-2: #dcdcdc;
+  --ac-red-1: #ff4d4d;
+}
