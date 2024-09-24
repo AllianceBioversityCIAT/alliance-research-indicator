@@ -5,12 +5,11 @@ import { CacheService } from './shared/services/cache.service';
 import { MetadataPanelComponent } from './shared/components/metadata-panel/metadata-panel.component';
 import { WebsocketService } from './shared/sockets/websocket.service';
 import { DynamicToastComponent } from './shared/components/dynamic-toast/dynamic-toast.component';
-import { LandingComponent } from "./pages/landing/landing.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DynamicToastComponent, MetadataPanelComponent, LandingComponent],
+  imports: [RouterOutlet, DynamicToastComponent, MetadataPanelComponent],
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
