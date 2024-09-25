@@ -1,6 +1,9 @@
-body {
-  background-color: #112F5C;
+:host {
+  display: block;
+  background-color: #112f5c !important; /* Asegúrate de que se aplique */
+}
+
+.content {
   min-height: 100vh;
   padding: 30px 70px 0;
 }
-
