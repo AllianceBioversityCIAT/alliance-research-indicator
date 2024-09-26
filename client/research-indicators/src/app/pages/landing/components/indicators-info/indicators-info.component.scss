@@ -11,14 +11,26 @@
     flex-wrap: wrap;
     gap: 40px;
     justify-content: center;
+
+    .bottom-row, .top-row {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .bottom-row {
+      flex: 1;
+    }
   }
 
   .card {
     background: linear-gradient(135deg, white, #223b5e);
     padding: 0.8px;
-    max-width: 450px;
+    max-width: 390px;
     text-align: center;
     border-radius: 31px;
+    flex-basis: calc(33.33%);
+    flex-grow: 1;
 
     .card-content {
       background: linear-gradient(135deg, #60728b, #223b5e);
@@ -26,7 +38,7 @@
       position: relative;
       height: 100%;
       width: 100%;
-      padding: 40px;
+      padding: 25px;
     }
 
   }
