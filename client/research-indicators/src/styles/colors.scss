@@ -53,11 +53,25 @@
     // acb = Alliance background color
     .abc-#{$name} {
       background-color: var(--ac-#{$name});
+      transition: background-color 0.3s ease;
     }
 
     // atc = Alliance text color
     .atc-#{$name} {
       color: var(--ac-#{$name});
+      transition: color 0.3s ease;
+    }
+
+    // acb = Alliance background color
+    .abc-#{$name}-i {
+      background-color: var(--ac-#{$name}) !important;
+      transition: background-color 0.3s ease;
+    }
+
+    // atc = Alliance text color
+    .atc-#{$name}-i {
+      color: var(--ac-#{$name}) !important;
+      transition: color 0.3s ease;
     }
   }
 }

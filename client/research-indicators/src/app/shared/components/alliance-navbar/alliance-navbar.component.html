@@ -1,18 +1,15 @@
-<div class="navbar">
+<div class="navbar abc-primary-blue-500">
   <div class="logo">
-    <img routerLink="home" src="alliance-blue.png" alt="" srcset="" />
+    <img routerLink="home" src="alliance-white.png" alt="" srcset="" />
   </div>
   <div class="options">
     @for (option of this.options; track $index) {
-    <a [routerLink]="option.path" routerLinkActive="active" class="option">
-      {{ option.label }}
-    </a>
-
-    } @if (!this.cache.isLoggedIn()) {
-    <p-button size="small" label="Sign in" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="redirectToCognito()" />
-
-    }@else {
-    <p-button size="small" label="Log out" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="logOut()" />
+      <a [routerLink]="option.path" class="option atc-white-1" routerLinkActive="active atc-light-blue-200-i">
+        {{ option.label }}
+      </a>
     }
+    <i class="material-symbols-rounded atc-white-1" (click)="this.darkModeService.toggleDarkMode()">{{ this.darkModeService.isDarkModeEnabled() ? 'light_mode' : 'dark_mode' }}</i>
+
+    <p-button size="small" label="Log out" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="logOut()" />
   </div>
 </div>

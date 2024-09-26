@@ -1,1 +1,17 @@
-<p>indicators-info works!</p>
+<div class="container">
+  <div class="header ">
+    <h1 class="atc-light-blue-200">Explore key Indicators driving impact</h1>
+  </div>
+  <div class="card-container">
+    <div class="card" *ngFor="let card of cards">
+      <div class="card-content">
+        <img [src]="card.icon" alt="{{ card.title }}" class="icon">
+        <h2>{{ card.title }}</h2>
+        <h3>{{ card.subtitle }}</h3>
+        <p>{{ card.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+

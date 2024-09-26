@@ -4,6 +4,7 @@ import { CacheService } from './cache.service';
 import { DynamicToastService } from './dynamic-toast.service';
 import { ApiService } from './api.service';
 import { WebsocketService } from '../sockets/websocket.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class CognitoService {
 
   constructor() {
     this.decode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2dpbiI6Im1pY3JvMy5kYXRhQGNnaWFyLm9yZyIsInN1YiI6NDY0MywicGVybWlzc2lvbnMiOlsiL2FwaS9hcHAtc2VjcmV0cy9jcmVhdGUiLCIvYXBpL2FwcC1zZWNyZXRzL3ZhbGlkYXRlIl0sImlhdCI6MTcyMTMzNzI0NywiZXhwIjoxNzIxMzY2MDQ3fQ.n92jqcr5JigN_8qMCMEDKjFOzpowduh9DuLct-qfGB4');
+  }
+
+  redirectToCognito() {
+    window.open(environment.cognitoUrl);
   }
 
   decode(token: string) {
@@ -58,9 +63,9 @@ export class CognitoService {
     this.cache.userInfo.set(localStorage.getItem('decoded') ? JSON.parse(localStorage.getItem('decoded') ?? '') : {});
     this.cache.isValidatingToken.set(false);
     this.dynamicToastSE.toastMessage.set({ severity: 'success', summary: 'Success', detail: 'You are now logged in' });
-    this.router.navigate(['/']);
-    setTimeout(() => {
-      this.cache.isLoggedIn.set(true);
-    }, 100);
+    this.cache.isLoggedIn.set(true);
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/']);
+    });
   }
 }

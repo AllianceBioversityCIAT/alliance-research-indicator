@@ -2,14 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  color: white;
-  padding: 50px 0;
+  padding-top: 160px;
+
 
   .column {
     flex: 1;
 
     .title {
-      color: #00b6ff;
       margin: 0;
     }
 
@@ -18,20 +17,14 @@
     }
 
     .cta-link {
-      color: white;
       margin-top: 30px;
     }
 
     .box {
-      background-color: white;
-      color: #035ba9;
       padding: 10px 30px;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 
-      p {
-        color: #777c83;
-      }
     }
 
     .data-container {
@@ -57,21 +50,31 @@
 
     .card {
       background: linear-gradient(135deg, white, #223b5e);
-      padding: 2px;
+      padding: 0.8px;
       border-radius: 31px;
-      width: 70%;
-      height: auto;
+      width: 300px;
+      height: 300px;
+      display: flex;
+
 
       .card-content {
         background: linear-gradient(135deg, #60728b, #223b5e);
         border-radius: 31px;
+        position: relative;
+        height: 100%;
+        width: 100%;
+
+        .card-image {
+          display: block;
+          width: 110%;
+          position: absolute;
+          bottom: 0;
+          left: -5%;
+        }
+
       }
 
-      .card-image {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
+
     }
   }
 }

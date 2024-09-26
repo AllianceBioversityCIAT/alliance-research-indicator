@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CacheService } from '../../shared/services/cache.service';
 import { RouterOutlet } from '@angular/router';
-import { CognitoService } from '../../shared/services/cognito.service';
 import { AllianceNavbarComponent } from '../../shared/components/alliance-navbar/alliance-navbar.component';
 import { AllianceSidebarComponent } from '../../shared/components/alliance-sidebar/alliance-sidebar.component';
 
@@ -13,10 +12,6 @@ import { AllianceSidebarComponent } from '../../shared/components/alliance-sideb
   styleUrl: './platform.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class PlatformComponent implements OnInit {
+export default class PlatformComponent {
   cache = inject(CacheService);
-  cognito = inject(CognitoService);
-  ngOnInit(): void {
-    this.cognito.validateCognitoCode();
-  }
 }
