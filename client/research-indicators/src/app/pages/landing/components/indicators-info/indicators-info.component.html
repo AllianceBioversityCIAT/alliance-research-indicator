@@ -7,9 +7,9 @@
       <div class="card" *ngFor="let card of cards.slice(0, 2)">
         <div class="card-content">
           <img [src]="card.icon" alt="{{ card.title }}" class="icon">
-          <h2>{{ card.title }}</h2>
-          <h3>{{ card.subtitle }}</h3>
-          <p>{{ card.description }}</p>
+          <h2 class="atc-white-1">{{ card.title }}</h2>
+          <h3 class="body-1 atc-light-blue-200">{{ card.subtitle }}</h3>
+          <p class="body-2 atc-white-1">{{ card.description }}</p>
         </div>
       </div>
     </div>
@@ -17,9 +17,9 @@
       <div class="card" *ngFor="let card of cards.slice(2, 5)">
         <div class="card-content">
           <img [src]="card.icon" alt="{{ card.title }}" class="icon">
-          <h2>{{ card.title }}</h2>
-          <h3>{{ card.subtitle }}</h3>
-          <p>{{ card.description }}</p>
+          <h2 class="atc-white-1">{{ card.title }}</h2>
+          <h3 class="body-1 atc-green-300">{{ card.subtitle }}</h3>
+          <p class="body-2 atc-white-1">{{ card.description }}</p>
         </div>
       </div>
     </div>

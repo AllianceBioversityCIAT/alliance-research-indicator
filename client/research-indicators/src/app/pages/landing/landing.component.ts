@@ -4,11 +4,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { ServicesComponent } from './components/services/services.component';
 import { IndicatorsInfoComponent } from './components/indicators-info/indicators-info.component';
 import { CognitoService } from '../../shared/services/cognito.service';
+import { FooterComponent } from "./components/footer/footer.component";
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [ToolbarComponent, HeaderComponent, ServicesComponent, IndicatorsInfoComponent],
+  imports: [ToolbarComponent, HeaderComponent, ServicesComponent, IndicatorsInfoComponent, FooterComponent],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })
