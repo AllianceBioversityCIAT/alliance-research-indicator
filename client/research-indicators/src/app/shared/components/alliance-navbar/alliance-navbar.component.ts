@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { BadgeModule } from 'primeng/badge';
 import { ChipModule } from 'primeng/chip';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { DynamicToastService } from '../../services/dynamic-toast.service';
 import { CacheService } from '../../services/cache.service';
-import { environment } from '../../../../environments/environment';
+import { DarkModeService } from '../../services/dark-mode.service';
 
 @Component({
   selector: 'alliance-navbar',
@@ -18,7 +18,8 @@ import { environment } from '../../../../environments/environment';
 export class AllianceNavbarComponent {
   dynamicToast = inject(DynamicToastService);
   cache = inject(CacheService);
-
+  darkModeService = inject(DarkModeService);
+  router = inject(Router);
   options = [
     { label: 'Home', path: '/home' },
     { label: 'About Indicators', path: '/about' },
@@ -27,17 +28,10 @@ export class AllianceNavbarComponent {
     { label: 'Profile', path: '/profile' }
   ];
 
-  redirectToCognito() {
-    // Redirect to cognito login in other tab
-    window.open(environment.cognitoUrl);
-
-    // // window.location.href = environment.cognitoUrl;
-    // this.dynamicToast.show('Redirecting to Cognito login', 'success');
-  }
-
   logOut() {
     localStorage.removeItem('decoded');
     localStorage.removeItem('token');
     this.cache.isLoggedIn.set(false);
+    this.router.navigate(['/auth']);
   }
 }

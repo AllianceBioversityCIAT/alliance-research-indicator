@@ -5,7 +5,6 @@
   justify-content: space-between;
   box-shadow: 0 0 15px 0 #00000030;
   border-radius: 10px;
-  background-color: white;
 
   .logo {
     img {
@@ -27,7 +26,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--blue-500);
       text-decoration: none;
       padding: 30px 18px;
       font-weight: 500;
@@ -38,7 +36,6 @@
 
       &.active {
         position: relative;
-        color: #00b6ff;
 
         &::after {
           content: '';
