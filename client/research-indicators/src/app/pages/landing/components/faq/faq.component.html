@@ -3,19 +3,14 @@
     <h1 class="h2 atc-light-blue-200">Do you have any questions?</h1>
   </div>
   <div class="content">
-    <div class="column">
-      <p-accordion>
-        <p-accordionTab *ngFor="let faq of faqs.slice(0,3)" [header]="faq.question" class="body-2">
+    <p-accordion>
+      <div class="accordions">
+      @for (faq of faqs; track $index) {
+        <p-accordionTab [header]="faq.question" class="body-2">
           <p>{{ faq.answer }}</p>
         </p-accordionTab>
-      </p-accordion>
-    </div>
-    <div class="column">
-      <p-accordion>
-        <p-accordionTab *ngFor="let faq of faqs.slice(3,6)" [header]="faq.question" class="body-2">
-          <p>{{ faq.answer }}</p>
-        </p-accordionTab>
-      </p-accordion>
-    </div>
+      }
+      </div>
+    </p-accordion>
   </div>
 </div>

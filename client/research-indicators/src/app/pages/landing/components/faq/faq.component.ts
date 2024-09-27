@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
 
@@ -10,7 +9,7 @@ export interface Faq {
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [CommonModule, AccordionModule],
+  imports: [AccordionModule],
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.scss'
 })

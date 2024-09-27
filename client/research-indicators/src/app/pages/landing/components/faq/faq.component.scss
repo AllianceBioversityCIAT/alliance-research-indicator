@@ -4,25 +4,22 @@
   flex-direction: column;
 
   .content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
     gap: 25px;
 
+    .accordions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
 
-    .column {
-      display: flex;
-      flex: 1;
-      box-sizing: border-box;
+    }
 
-      p-accordion {
-        width: 100%;
-      }
+    p-accordion {
+      width: 100%;
+    }
 
-      p-accordionTab {
-        margin: 10px;
-      }
+    p-accordionTab {
+      margin: 10px;
     }
   }
+
 
 }
