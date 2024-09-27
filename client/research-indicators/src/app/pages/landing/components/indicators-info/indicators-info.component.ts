@@ -23,7 +23,7 @@ export class IndicatorsInfoComponent {
       icon: '/icon1.png',
       title: 'CAPACITY SHARING',
       subtitle: 'Output',
-      description: 'Number of individuals trained or engaged by Alliance staff, aiming to lead to behavioral changes in knowledge, attitude, skills, and practice among CGIAR and non-CGIAR personnel. ',
+      description: 'Number of individuals trained or engaged by Alliance staff, aiming to lead to behavioral changes in knowledge, attitude, skills, and practice among CGIAR and non-CGIAR personnel.',
 
     },
     {
