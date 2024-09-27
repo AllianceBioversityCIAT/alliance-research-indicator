@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
+
+
+    .column {
+      display: flex;
+      flex: 1;
+      box-sizing: border-box;
+
+      p-accordion {
+        width: 100%;
+      }
+
+      p-accordionTab {
+        margin: 10px;
+      }
+    }
+  }
+
+}
