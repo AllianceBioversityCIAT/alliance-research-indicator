@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
-
-export interface Faq {
-  question: string;
-  answer: string;
-}
+import { Faq } from '../../interfaces/landing.interface';
 
 @Component({
   selector: 'app-faq',

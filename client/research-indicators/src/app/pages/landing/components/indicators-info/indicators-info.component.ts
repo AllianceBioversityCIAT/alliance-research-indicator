@@ -1,12 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-
-export interface Card {
-  icon: string;
-  title: string;
-  subtitle: string;
-  description: string;
-}
+import { Card } from '../../interfaces/landing.interface';
 
 @Component({
   selector: 'app-indicators-info',
