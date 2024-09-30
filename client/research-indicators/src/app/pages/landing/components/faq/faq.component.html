@@ -5,7 +5,7 @@
   <div class="content">
     <p-accordion>
       <div class="accordions">
-      @for (faq of faqs; track $index) {
+      @for (faq of faqs(); track $index) {
         <p-accordionTab [header]="faq.question" class="body-2">
           <p>{{ faq.answer }}</p>
         </p-accordionTab>
