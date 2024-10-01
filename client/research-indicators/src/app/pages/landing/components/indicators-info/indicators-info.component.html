@@ -4,7 +4,7 @@
   </div>
   <div class="card-container">
     <div class="top-row">
-      @for (card of cards().slice(0, 2); track $index) {
+      @for (card of this.cardList().slice(0, 2); track $index) {
         <div class="card">
           <div class="card-content">
             <img [src]="card.icon" alt="{{ card.title }}" class="icon" />
@@ -16,7 +16,7 @@
       }
     </div>
     <div class="bottom-row">
-      @for (card of cards().slice(2, 5); track $index) {
+      @for (card of this.cardList().slice(2, 5); track $index) {
         <div class="card">
           <div class="card-content">
             <img [src]="card.icon" alt="{{ card.title }}" class="icon" />

@@ -10,9 +10,5 @@ import { LandingTextsService } from '../../services/landing-texts.service';
   styleUrl: './faq.component.scss'
 })
 export class FaqComponent {
-
-  faqService = inject(LandingTextsService);
-
-  faqs = this.faqService.getFaqs();
-
+  faqList = inject(LandingTextsService).faqList;
 }

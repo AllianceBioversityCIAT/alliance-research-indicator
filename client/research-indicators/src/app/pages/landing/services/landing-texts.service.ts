@@ -5,7 +5,7 @@ import { Card, Faq } from '../interfaces/landing.interface';
   providedIn: 'root'
 })
 export class LandingTextsService {
-  faqs = signal<Faq[]>([
+  faqList = signal<Faq[]>([
     {
       question: 'What is the Alliance Reporting Tool?',
       answer: 'Answer...'
@@ -32,11 +32,7 @@ export class LandingTextsService {
     }
   ]);
 
-  getFaqs() {
-    return this.faqs;
-  }
-
-  cards = signal<Card[]>([
+  cardList = signal<Card[]>([
     {
       icon: '/icon1.png',
       title: 'CAPACITY SHARING',
@@ -68,8 +64,4 @@ export class LandingTextsService {
       description: 'A metric used to assess the extent to which an innovation is already being used, by which type of users and under which conditions, with a scale ranging from no use (lowest level) to common use.'
     }
   ]);
-
-  getCards() {
-    return this.cards;
-  }
 }
