@@ -1,12 +1,14 @@
 footer {
   background-color: #ffffff;
   padding: 20px;
+  width: 100vw !important; /* Asegura que el footer ocupe todo el ancho de la ventana */
+  margin-left: calc(50% - 50vw);
 }
 
 .footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  padding: 20px 0;
+  padding: 20px;
 }
 
 .footer-column {
@@ -15,8 +17,9 @@ footer {
 }
 
 .footer-logo {
+  padding-top: 20px;
   margin: 0 auto;
-  max-width: 150px;
+  max-width: 130px;
 }
 
 .footer-column h3 {
@@ -29,11 +32,12 @@ footer {
 
 .footer-copyright {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 35px;
+  margin-bottom: 20px;
 }
 
 .footer-separator {
   border: none;
   border-top: 1px solid #ccc; /* Línea fina */
-  margin: 20px 0;
+  margin: 20px 90px 0;
 }
