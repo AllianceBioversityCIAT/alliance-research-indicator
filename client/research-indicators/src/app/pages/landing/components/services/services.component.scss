@@ -4,7 +4,6 @@
   align-items: flex-end;
   padding-top: 160px;
 
-
   .column {
     flex: 1;
 
@@ -24,7 +23,6 @@
       padding: 10px 30px;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-
     }
 
     .data-container {
@@ -55,7 +53,7 @@
       width: 300px;
       height: 300px;
       display: flex;
-
+      margin: 0 30px;
 
       .card-content {
         background: linear-gradient(135deg, #60728b, #223b5e);
@@ -71,10 +69,7 @@
           bottom: 0;
           left: -5%;
         }
-
       }
-
-
     }
   }
 }
