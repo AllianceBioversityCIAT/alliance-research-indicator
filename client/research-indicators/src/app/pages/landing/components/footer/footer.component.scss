@@ -26,10 +26,9 @@ footer {
 
       a {
         margin-bottom: 5px;
-      }
-
-      a:visited {
-        color: inherit; /* O puedes usar otro color en lugar de 'inherit' */
+        text-decoration: none;
+        color: var(--ac-primary-blue-600);
+        width: max-content;
       }
     }
   }
