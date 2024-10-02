@@ -6,11 +6,12 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { DynamicToastService } from '../../services/dynamic-toast.service';
 import { CacheService } from '../../services/cache.service';
 import { DarkModeService } from '../../services/dark-mode.service';
-
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
 @Component({
   selector: 'alliance-navbar',
   standalone: true,
-  imports: [ButtonModule, BadgeModule, ChipModule, RouterLink, RouterLinkActive],
+  imports: [ButtonModule, BadgeModule, ChipModule, RouterLink, RouterLinkActive, AvatarModule, AvatarGroupModule],
   templateUrl: './alliance-navbar.component.html',
   styleUrl: './alliance-navbar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
