@@ -1,12 +1,18 @@
 import { HttpInterceptorFn } from '@angular/common/http';
+import { CacheService } from '../services/cache.service';
+import { inject } from '@angular/core';
 
 export const jWtInterceptor: HttpInterceptorFn = (req, next) => {
-  const jwtToken = 'test-token';
+  const jwtToken = inject(CacheService).token();
 
-  const clonedRequest = req.clone({
-    setHeaders: {
-      Authorization: `Bearer ${jwtToken}`
-    }
-  });
-  return next(clonedRequest);
+  if (!req.headers.has('Authorization')) {
+    const clonedRequest = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${jwtToken}`
+      }
+    });
+    return next(clonedRequest);
+  }
+
+  return next(req);
 };
