@@ -5,12 +5,11 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
       let errorMessage = '';
-      if (error.error instanceof ErrorEvent) {
+      if (error?.error instanceof ErrorEvent) {
         errorMessage = `Error: ${error.error.message}`;
       } else {
         errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
       }
-      console.log('HTTP Error Intercepted:', errorMessage);
       return throwError(() => errorMessage);
     })
   );
