@@ -23,10 +23,8 @@ export class AllianceNavbarComponent {
   router = inject(Router);
   options = [
     { label: 'Home', path: '/home' },
-    { label: 'About Indicators', path: '/about' },
-    { label: 'Notifications', path: '/notifications' },
-    { label: 'Settings', path: '/settings' },
-    { label: 'Profile', path: '/profile' }
+    { label: 'My Results', path: '/settings', icon: 'keyboard_arrow_down' },
+    { label: 'My Contracts', path: '/profile', icon: 'keyboard_arrow_down' }
   ];
 
   logOut() {

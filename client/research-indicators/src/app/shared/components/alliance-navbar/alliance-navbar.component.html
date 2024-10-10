@@ -6,18 +6,27 @@
     @for (option of this.options; track $index) {
       <a [routerLink]="option.path" class="option atc-white-1" routerLinkActive="active atc-light-blue-200-i">
         {{ option.label }}
+        <i class="material-symbols-rounded">{{ option.icon }}</i>
       </a>
     }
-    <i class="material-symbols-rounded atc-white-1" (click)="this.darkModeService.toggleDarkMode()">{{ this.darkModeService.isDarkModeEnabled() ? 'light_mode' : 'dark_mode' }}</i>
-    <i class="material-symbols-rounded atc-white-1 notification-dropdown-icon" pBadge severity="danger" value="2">
-      notifications
-      <div class="notification-dropdown"></div>
-    </i>
-
-    <div class="notification-dropdown-icon">
-      <p-avatar label="P" styleClass="mr-2" shape="circle" />
-      <div class="notification-dropdown">
-        <p-button size="small" label="Log out" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="logOut()" />
+    <p-button label="New result" size="small" />
+    <div class="icons-container">
+      <div class="search-container">
+        <div class="search-box">
+          <i class="material-symbols-rounded">search</i>
+          <input type="text" placeholder="Search a result" />
+        </div>
+      </div>
+      <i class="material-symbols-rounded atc-white-1" (click)="this.darkModeService.toggleDarkMode()">{{ this.darkModeService.isDarkModeEnabled() ? 'light_mode' : 'dark_mode' }}</i>
+      <i class="material-symbols-rounded atc-white-1 notification-dropdown-icon" pBadge severity="danger" value="2">
+        notifications
+        <div class="notification-dropdown"></div>
+      </i>
+      <div class="notification-dropdown-icon">
+        <p-avatar label="P" styleClass="mr-2" />
+        <div class="notification-dropdown">
+          <p-button size="small" label="Log out" icon="pi pi-sign-in" [loading]="this.cache.isValidatingToken()" (onClick)="logOut()" />
+        </div>
       </div>
     </div>
   </div>
