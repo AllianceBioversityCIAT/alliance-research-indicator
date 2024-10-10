@@ -1,61 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { DataSource, EntityManager, Repository } from 'typeorm';
+import { DataSource, EntityManager, In, Not, Repository } from 'typeorm';
 import { ResultContract } from './entities/result-contract.entity';
 import { ContractRolesEnum } from './enum/lever-roles.enum';
 import { ResultContractsRepository } from './repositories/result-contracts.repository';
-import { updateArray } from '../../shared/utils/array.util';
+import { filterPersistKey, updateArray } from '../../shared/utils/array.util';
 import { selectManager } from '../../shared/utils/orm.util';
+import { BaseServiceSimple } from '../../shared/global-dto/base-service';
 
 @Injectable()
-export class ResultContractsService {
+export class ResultContractsService extends BaseServiceSimple<
+  ResultContract,
+  ResultContractsRepository
+> {
   constructor(
     private readonly dataSource: DataSource,
-    private readonly mainRepo: ResultContractsRepository,
-  ) {}
-
-  async create(
-    result_id: number,
-    contract_id: string | string[],
-    contract_role_id: ContractRolesEnum,
-    manager?: EntityManager,
+    customRepo: ResultContractsRepository,
   ) {
-    const entityManager: Repository<ResultContract> = selectManager(
-      manager,
-      ResultContract,
-      this.mainRepo,
-    );
-
-    const contractId = Array.isArray(contract_id) ? contract_id : [contract_id];
-
-    const existData = await this.mainRepo.find({
-      where: {
-        result_id: result_id,
-        contract_role_id: contract_role_id,
-      },
-    });
-
-    const formatDataLever: Partial<ResultContract>[] = contractId.map(
-      (data) => ({
-        contract_role_id: contract_role_id,
-        contract_id: data,
-      }),
-    );
-
-    const updateResultLever = updateArray<ResultContract>(
-      formatDataLever,
-      existData,
-      'result_contract_id',
-      {
-        key: 'result_id',
-        value: result_id,
-      },
-    );
-
-    const response = (await entityManager.save(updateResultLever)).filter(
-      (data) => data.is_active === true,
-    );
-
-    return response;
+    super(ResultContract, customRepo, 'result_id', 'contract_role_id');
   }
 
   async deleteAll(result_id: number, manager?: EntityManager) {
