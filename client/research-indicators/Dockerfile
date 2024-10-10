@@ -17,6 +17,16 @@ COPY . .
 # Build the Angular application
 RUN npm run build --prod
 
+#################### TESTING STAGE ####################
+# Use the same Node.js runtime as a parent image
+FROM node:20-alpine as test
+
+# Set the working directory
+WORKDIR /usr/src/app
+
+# Copy the built Angular application from the build stage
+COPY --from=build /usr/src/app /usr/src/app
+
 #################### PRODUCTION STAGE ####################
 # Use an official Nginx runtime as a parent image
 FROM nginx:alpine
