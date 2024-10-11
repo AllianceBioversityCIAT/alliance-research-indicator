@@ -6,7 +6,9 @@
     @for (option of this.options; track $index) {
       <a [routerLink]="option.path" class="option atc-white-1" routerLinkActive="active atc-light-blue-200-i">
         {{ option.label }}
-        <i class="material-symbols-rounded">{{ option.icon }}</i>
+        <a class="option-icon material-symbols-rounded atc-white-1" routerLinkActive="active atc-light-blue-200-i">
+          {{ option.icon }}
+        </a>
       </a>
     }
     <p-button label="New result" size="small" />
