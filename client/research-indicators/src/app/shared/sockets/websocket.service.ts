@@ -15,8 +15,8 @@ export class WebsocketService {
   public socketStatus = false;
   public user: User | null = null;
 
-  userList: WritableSignal<any> = signal([]);
-  currentRoom: WritableSignal<any> = signal({ id: '', userList: [] });
+  userList: WritableSignal<User[]> = signal([]);
+  currentRoom: WritableSignal<{ id: string; userList: User[] }> = signal({ id: '', userList: [] });
   platform = environment.platform;
   constructor() {
     this.runsockets();
@@ -42,7 +42,7 @@ export class WebsocketService {
     });
   }
 
-  emit(event: string, payload?: any, callback?: Function) {
+  emit<T>(event: string, payload?: T, callback?: () => void) {
     this.socket.emit(event, payload, callback);
   }
 
@@ -51,9 +51,8 @@ export class WebsocketService {
   }
 
   configUser(name: string, userId: number) {
-    return new Promise((resolve, reject) => {
-      console.table({ name, userId, platform: this.platform });
-      this.emit('config-user', { name, userId, platform: this.platform }, (resp: any) => {
+    return new Promise(resolve => {
+      this.emit('config-user', { name, userId, platform: this.platform }, () => {
         this.user = new User(name, userId);
         resolve(null);
       });
@@ -68,7 +67,7 @@ export class WebsocketService {
       name: 'nameless'
     };
 
-    this.emit('config-user', payload, () => {});
+    this.emit('config-user', payload);
     this.router.navigateByUrl('');
   }
 
@@ -78,19 +77,19 @@ export class WebsocketService {
 
   getConnectedUsers() {
     this.listen(`all-connected-users-${this.platform}`).subscribe(resp => {
-      this.userList.set(resp);
+      this.userList.set(resp as User[]);
     });
   }
 
   getAlerts() {
-    this.listen(`alert-${this.platform}`).subscribe((msg: any) => {
-      console.log(msg.text);
+    this.listen(`alert-${this.platform}`).subscribe(msg => {
+      alert(msg);
     });
   }
 
   getNotifications() {
     this.listen('notifications').subscribe(msg => {
-      console.log(msg);
+      alert(msg);
     });
   }
 }
