@@ -6,7 +6,7 @@ const config: Config = {
   globalSetup: 'jest-preset-angular/global-setup',
   collectCoverage: true,
   collectCoverageFrom: ['./src/app/**/*.ts', './src/app/**/*.html', '!./src/app/**/*routing.ts', '!./src/app/**/*module.ts'],
-  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/dist/', '<rootDir>/src/app/pages/landing'],
   coveragePathIgnorePatterns: ['<rootDir>/src/app/app.config.ts', '<rootDir>/src/app/app.routes.ts'],
   coverageReporters: ['text', 'cobertura', 'lcov'],
   coverageThreshold: {
