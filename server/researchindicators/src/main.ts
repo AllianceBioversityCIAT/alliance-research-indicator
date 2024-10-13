@@ -36,13 +36,14 @@ async function bootstrap() {
       logger.error(err);
     });
 
-  const appSocket = await NestFactory.createMicroservice<MicroserviceOptions>(
+    const queueHost: string = `amqps://${env.ARI_MQ_USER}:${env.ARI_MQ_PASSWORD}@${env.ARI_MQ_HOST}`;
+    const appSocket = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
       transport: Transport.RMQ,
       options: {
-        urls: ['amqp://localhost:5672'],
-        queue: 'cgiar_app_test_main_management_queue',
+        urls: [queueHost],
+        queue: env.MS_QUEUE_PATH,
         queueOptions: {
           durable: true,
         },
