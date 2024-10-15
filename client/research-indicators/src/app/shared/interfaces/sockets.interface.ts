@@ -9,3 +9,9 @@ export interface ConfigUserPayload {
   userId: number;
   platform: string;
 }
+
+export interface SocketUser {
+  id: number;
+  name: string;
+  room: string;
+}

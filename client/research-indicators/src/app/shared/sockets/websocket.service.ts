@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CacheService } from '../services/cache.service';
 import { User } from './classes/User';
 import { environment } from '../../../environments/environment';
+import { SocketUser } from '../interfaces/sockets.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class WebsocketService {
   public user: User | null = null;
 
   userList: WritableSignal<User[]> = signal([]);
-  currentRoom: WritableSignal<{ id: string; userList: User[] }> = signal({ id: '', userList: [] });
+  currentRoom: WritableSignal<{ id: string; userList: SocketUser[] }> = signal({ id: '', userList: [] });
   platform = environment.platform;
   constructor() {
     this.runsockets();
