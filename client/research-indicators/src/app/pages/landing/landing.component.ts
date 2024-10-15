@@ -6,7 +6,7 @@ import { IndicatorsInfoComponent } from './components/indicators-info/indicators
 import { CognitoService } from '../../shared/services/cognito.service';
 import { FooterComponent } from './components/footer/footer.component';
 import { FaqComponent } from './components/faq/faq.component';
-import { VersionNumberComponent } from '../../oages/landing/components/version-number/version-number.component';
+import { VersionNumberComponent } from './components/version-number/version-number.component';
 
 @Component({
   selector: 'app-landing',

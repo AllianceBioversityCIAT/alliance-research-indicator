@@ -10,6 +10,6 @@ interface NavOption {
 
 export interface AllianceNavOptions {
   label: string;
-  path: string;
+  path?: string;
   icon?: string;
 }
