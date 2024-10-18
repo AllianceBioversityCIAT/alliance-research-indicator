@@ -1,1 +1,8 @@
-<p>dropdown works!</p>
+<div class="dropdown {{ position }}" (mouseleave)="closeDropdown()">
+  <div (click)="toggleDropdown()" class="dropdown-button">
+    <ng-content select="[dropdown-button]"></ng-content>
+  </div>
+  <div class="dropdown-content" [class]="{ show: isOpen }">
+    <ng-content select="[dropdown-content]"></ng-content>
+  </div>
+</div>
