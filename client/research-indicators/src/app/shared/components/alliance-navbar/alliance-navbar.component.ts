@@ -9,10 +9,11 @@ import { DarkModeService } from '../../services/dark-mode.service';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { AllianceNavOptions } from '../../interfaces/nav.interface';
+import { DropdownComponent } from '../dropdown/dropdown.component';
 @Component({
   selector: 'alliance-navbar',
   standalone: true,
-  imports: [ButtonModule, BadgeModule, ChipModule, RouterLink, RouterLinkActive, AvatarModule, AvatarGroupModule],
+  imports: [ButtonModule, BadgeModule, ChipModule, RouterLink, RouterLinkActive, AvatarModule, AvatarGroupModule, DropdownComponent],
   templateUrl: './alliance-navbar.component.html',
   styleUrl: './alliance-navbar.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
